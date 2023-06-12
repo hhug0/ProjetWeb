@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="button.css">
+  <title>Mon site</title>
+</head>
+<body>
+  <h1>Quizz Drama</h1>
+
+  <div id="quiz"></div>
+
+  <button onclick="submitQuiz()">Valider</button>
+
+  <script>
+    var questions = [
+      {
+        question: "Qui est l'auteur de la pièce de théâtre 'Le Cid' ?",
+        choices: ["Molière", "Jean Racine", "Pierre Corneille", "Victor Hugo"],
+        correctAnswer: "Pierre Corneille",
+      },
+      {
+        question:
+          "Quelle célèbre tragédie de Shakespeare met en scène le personnage de Macbeth ?",
+        choices: ["Roméo et Juliette", "Hamlet", "Macbeth", "Othello"],
+        correctAnswer: "Macbeth",
+      },
+      {
+        question:
+          "Dans quelle pièce de théâtre de Molière peut-on retrouver le personnage d'Argan, un hypocondriaque ?",
+        choices: [
+          "Le Malade imaginaire",
+          "L'Avare",
+          "Le Tartuffe",
+          "Les Femmes savantes",
+        ],
+        correctAnswer: "Le Malade imaginaire",
+      },
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+    var quizContainer = document.getElementById("quiz");
+
+    function showQuestion() {
+      var question = questions[currentQuestion];
+      var questionHTML = "<h2>" + question.question + "</h2>";
+
+      var choices = question.choices;
+      for (var i = 0; i < choices.length; i++) {
+        questionHTML +=
+          "<input type='radio' name='quiz-" +
+          currentQuestion +
+          "' value='" +
+          choices[i] +
+          "'>";
+        questionHTML += choices[i] + "<br>";
+      }
+
+      quizContainer.innerHTML = questionHTML;
+    }
+
+    function submitQuiz() {
+      var selectedOption = document.querySelector(
+        "input[name='quiz-" + currentQuestion + "']:checked"
+      );
+      if (selectedOption) {
+        if (selectedOption.value === questions[currentQuestion].correctAnswer) {
+          score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          quizContainer.innerHTML =
+            "<h2>Quizz terminé!</h2>" +
+            "<p>Score total: " +
+            score +
+            "</p>" +
+            "<button onclick='restartQuiz()'>Recommencer</button>" +
+            "<button onclick='goToHomePage()'>Retour à la page d'accueil</button>";
+        }
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function goToHomePage() {
+      window.location.href = "index.html"; // Remplacez "index.html" par l'URL de votre page d'accueil
+    }
+
+    // Appeler la fonction showQuestion() pour afficher les questions et réponses au chargement de la page
+    showQuestion();
+  </script>
+</body>
+</html>
