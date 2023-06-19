@@ -1,6 +1,7 @@
 var lesQuestions = [];
 
 function ajouteruneQuestion() {
+    var questionForm = document.getElementById("questionForm");
     var questionInput = document.getElementById("questionInput");
     var correctAnswerInput = document.getElementById("correctAnswerInput");
     var incorrectAnswer1Input = document.getElementById("incorrectAnswer1Input");
