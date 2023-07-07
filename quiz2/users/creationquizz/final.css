@@ -1,0 +1,32 @@
+body{
+    background: linear-gradient(rgb(1, 27, 119),rgb(104,178,239),rgb(104,178,239),rgb(104,178,239));
+    height: 775px;
+}
+
+.jojo{
+    margin-left: 10px;
+}
+
+.clapper{
+    position: fixed;
+    top: 50%;
+    left: 5%;
+    width:400px;
+    height:400px;
+    z-index: -10;
+    transform: rotate(-20deg);
+}
+
+.juju{
+    position: fixed;
+    top: 30%;
+    left: 70%;
+    width:400px;
+    height:400px;
+    z-index: -10;
+    transform: rotate(-20deg);
+}
+
+.li{
+    margin-right: 300px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="buton.css">
+  <title>Mon site</title>
+  <link href="page1.html">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+
+  <!--Quizz-->
+
+  <br></br>
+  <h1>Quizz Drama</h1>
+  <br></br>
+  <br></br>
+
+  <div id="quiz"></div>
+
+  <div class=bouton><button onclick="submitQuiz()">Valider</button></div>
+
+  <script>
+    var questions = [
+      {
+        question: "Quel probleme a Forrest dans sa jeunesse ? <br></br>",
+        choices: ["Il a des problemes de dos et aux jambes", "Il est deficient intellectuel", "Les deux", "Il a aucun probleme"],
+        correctAnswer: "Il est deficient intellectuel",
+      },
+      {
+        question:
+          "Combien d'oscars la liste de Schlinder a-t-il recu ? <br></br>",
+        choices: ["2", "5", "6", "7"],
+        correctAnswer: "7",
+      },
+      {
+        question:
+          "Qui a realise Interstellar ? <br></br>",
+        choices: [
+          "Steven Spielberg",
+          "Quentin Tarantino",
+          "Christopher Nolan",
+          "Ridley Scott",
+        ],
+        correctAnswer: "Christopher Nolan",
+      },
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+    var quizContainer = document.getElementById("quiz");
+
+    function showQuestion() {
+      var question = questions[currentQuestion];
+      var questionHTML = "<h2>" + question.question + "</h2>";
+
+      var choices = question.choices;
+      for (var i = 0; i < choices.length; i++) {
+        questionHTML +=
+          "<input type='radio' name='quiz-" +
+          currentQuestion +
+          "' value='" +
+          choices[i] +
+          "'>";
+        questionHTML += choices[i] + "<br>";
+      }
+
+      quizContainer.innerHTML = questionHTML;
+    }
+
+    function submitQuiz() {
+      var selectedOption = document.querySelector(
+        "input[name='quiz-" + currentQuestion + "']:checked"
+      );
+      if (selectedOption) {
+        if (selectedOption.value === questions[currentQuestion].correctAnswer) {
+          score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          quizContainer.innerHTML =
+            "<h2>Quizz termine !</h2>" +
+            "<p>Score total: " +
+            score +
+            "</p>" +
+            "<button onclick='restartQuiz()'>Recommencer</button>" +
+            "<button onclick='goToHomePage()'>Retour à la page d'accueil</button>";
+        }
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function goToHomePage() {
+      window.location.href = "listequizz.php"; // Remplacez "index.html" par l'URL de votre page d'accueil
+    }
+
+    // Appeler la fonction showQuestion() pour afficher les questions et réponses au chargement de la page
+    showQuestion();
+  </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+body{
+    background: linear-gradient(rgb(1, 27, 119), rgb(104,178,239),rgb(104,178,239),rgb(1, 27, 119));
+    height: 790px;
+}
+
+.cross{
+    position: fixed;
+    top: 40%;
+    left: 10%;
+    width:250px;
+    height:250px;
+    z-index: -10;
+}
+
+.cruss{
+    position: fixed;
+    top: 40%;
+    left: 75%;
+    width:250px;
+    height:250px;
+    z-index: -10;
+}
+
+.yolo{
+    background-color: #01B7CF;
+}
+
+.polo {
+    
+    background-color: #4CAF50;
+    border: ridge;
+    border-color: black;
+    color: rgb(253, 250, 250);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.polo:hover {
+    background-color: #d42121;
+    border: ridge;
+    border-color: black;
+    color: rgb(252, 249, 249);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.jean{
+    text-align: center;
+}
+
+.lol{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.coco{
+    margin-right: 150px;
+    margin-left: 150px;  
+}
+
+.kiki{
+    float: center;
+}
+
+.link{
+    padding-left: 20%;
+    padding-right: 80%;
+}
+
+.kiki{
+    padding-left: 27%;
+    padding-right: 73%;
+}
+
+.epi{
+    text-align: center;
+    border: #033b42 solid 2px;
+    border-radius: 5px;
+    background-color: rgba(205, 211, 211, 0.579);
+    margin-left: 35%;
+    margin-right: 35%;
+    padding: 40px;
+    box-shadow: black;
+}

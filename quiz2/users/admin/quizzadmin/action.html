@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+        background-image: url("photocinema.jpg.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  <title>Mon site</title>
+  <link rel="stylesheet" href="buton.css">
+</head>
+<body>
+  <br></br>
+  <h1>Quizz Action</h1>
+  <br></br>
+  <br></br>
+
+  <div id="quiz"></div>
+
+  <button onclick="submitQuiz()">Valider</button>
+
+  <script>
+    var questions = [
+      {
+        question:
+          "Dans quel film Sylvester Stallone incarne-t-il le personnage emblematique de John Rambo ? <br></br>",
+        choices: [
+          "Rambo: First Blood",
+          "Rambo: Last Blood",
+          "Rambo: First Strike",
+          "Rambo: Final Battle",
+        ],
+        correctAnswer: "Rambo: First Blood",
+      },
+      {
+        question:
+          "Qui a realise le film d'action 'Mad Max: Fury Road' sorti en 2015 ? <br></br>",
+        choices: [
+          "Christopher Nolan",
+          "George Miller",
+          "Steven Spielberg",
+          "James Cameron",
+        ],
+        correctAnswer: "George Miller",
+      },
+      {
+        question:
+          "Dans le film 'Die Hard' (Piege de cristal), quel acteur incarne le personnage principal, John McClane ? <br></br>",
+        choices: [
+          "Arnold Schwarzenegger",
+          "Bruce Willis",
+          "Tom Cruise",
+          "Mel Gibson",
+        ],
+        correctAnswer: "Bruce Willis",
+      },
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+    var quizContainer = document.getElementById("quiz");
+
+    function showQuestion() {
+      var question = questions[currentQuestion];
+      var questionHTML = "<h2>" + question.question + "</h2>";
+
+      var choices = question.choices;
+      for (var i = 0; i < choices.length; i++) {
+        questionHTML +=
+          "<input type='radio' name='quiz-" +
+          currentQuestion +
+          "' value='" +
+          choices[i] +
+          "'>";
+        questionHTML += choices[i] + "<br>";
+      }
+
+      quizContainer.innerHTML = questionHTML;
+    }
+
+    function submitQuiz() {
+      var selectedOption = document.querySelector(
+        "input[name='quiz-" + currentQuestion + "']:checked"
+      );
+      if (selectedOption) {
+        if (selectedOption.value === questions[currentQuestion].correctAnswer) {
+          score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          quizContainer.innerHTML =
+            "<h2>Quizz termine !</h2>" +
+            "<p>Score total: " +
+            score +
+            "</p>" +
+            "<button onclick='restartQuiz()'>Recommencer</button>" +
+            "<button onclick='goToHomePage()'>Retour a la page d'accueil</button>";
+        }
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function goToHomePage() {
+      window.location.href = "./listequizz.php"; // Remplacez "index.html" par l'URL de votre page d'accueil
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

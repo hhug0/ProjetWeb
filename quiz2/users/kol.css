@@ -1,0 +1,76 @@
+body{
+    background: linear-gradient(rgb(1, 27, 119),rgb(104,178,239),rgb(104,178,239),rgb(104,178,239));
+    height: 790px;
+}
+
+.yolo{
+    background-color: #01B7CF;
+}
+
+.polo {
+    
+    background-color: #4CAF50;
+    border: ridge;
+    border-color: black;
+    color: rgb(253, 250, 250);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.polo:hover {
+    background-color: #d42121;
+    border: ridge;
+    border-color: black;
+    color: rgb(252, 249, 249);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.box-body{
+    background-color: rgb(227, 227, 218);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.box-border{
+    border-color: black;
+    border: 5px;
+}
+
+.jean{
+    text-align: center;
+}
+
+.lol{
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.coco{
+    margin-right: 150px;
+    margin-left: 150px;  
+}
+
+.kiki{
+    float: center;
+}
+
+.link{
+    padding-left: 20%;
+    padding-right: 80%;
+}
+
+.kiki{
+    padding-left: 27%;
+    padding-right: 73%;
+}

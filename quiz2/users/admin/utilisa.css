@@ -1,0 +1,22 @@
+.kiki{
+    float: center;
+}
+
+.link{
+    padding-left: 20%;
+    padding-right: 80%;
+}
+
+.kiki{
+    padding-left: 27%;
+    padding-right: 73%;
+}
+
+body{
+    background: linear-gradient(rgb(1, 27, 119), rgb(104,178,239),rgb(104,178,239),rgb(1, 27, 119));
+    height: 790px;
+}
+
+.yolo{
+    background-color: #01B7CF;
+}

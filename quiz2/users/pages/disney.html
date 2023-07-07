@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="buton.css">
+      <meta name="viewport">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <title>Mon site</title>
+</head>
+
+<body>
+
+
+  <h1>Quizz Disney</h1>
+
+  <br></br>
+
+  <div id="quiz"></div>
+
+  <button onclick="submitQuiz()">Valider</button>
+
+  <script>
+    var questions = [
+      {
+        question:
+          "Dans quel film Disney une jeune femme intrepide du nom de Moana se lance dans un voyage audacieux pour sauver son peuple ?",
+        choices: ["La Reine des Neiges", "Mulan", "Moana", "La Belle et la Bete"],
+        correctAnswer: "Moana",
+      },
+      {
+        question:
+          "Quel est le titre du film Disney de 1994 qui raconte l'histoire d'un lionceau qui doit affronter ses peurs pour devenir le roi de la Terre des Lions ?",
+        choices: [
+          "La Petite Sirene",
+          "Aladdin",
+          "Le Roi Lion",
+          "La Belle et la Bete",
+        ],
+        correctAnswer: "Le Roi Lion",
+      },
+      {
+        question:
+          "Dans quel film Disney une jeune femme nommée Belle se lie d'amitié avec une créature enchantee dans un château enchante ?",
+        choices: [
+          "La Belle au bois dormant",
+          "Cendrillon",
+          "La Petite Sirene",
+          "La Belle et la Bete",
+        ],
+        correctAnswer: "La Belle et la Bete",
+      },
+    ];
+
+    var currentQuestion = 0;
+    var score = 0;
+    var quizContainer = document.getElementById("quiz");
+
+    function showQuestion() {
+      var question = questions[currentQuestion];
+      var questionHTML = "<h2>" + question.question + "</h2>";
+
+      var choices = question.choices;
+      for (var i = 0; i < choices.length; i++) {
+        questionHTML +=
+          "<input type='radio' name='quiz-" +
+          currentQuestion +
+          "' value='" +
+          choices[i] +
+          "'>";
+        questionHTML += choices[i] + "<br>";
+      }
+
+      quizContainer.innerHTML = questionHTML;
+    }
+
+    function submitQuiz() {
+      var selectedOption = document.querySelector(
+        "input[name='quiz-" + currentQuestion + "']:checked"
+      );
+      if (selectedOption) {
+        if (selectedOption.value === questions[currentQuestion].correctAnswer) {
+          score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          showQuestion();
+        } else {
+          quizContainer.innerHTML =
+            "<h2>Quizz terminé!</h2>" +
+            "<p>Score total: " +
+            score +
+            "</p>" +
+            "<button onclick='restartQuiz()'>Recommencer</button>" +
+            "<button onclick='goToHomePage()'>Retour à la page d'accueil</button>";
+        }
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      showQuestion();
+    }
+
+    function goToHomePage() {
+      window.location.href = "../page quizz/page1.html"; // Remplacez "index.html" par l'URL de votre page d'accueil
+    }
+
+    showQuestion();
+  </script>
+</body>
+</html>

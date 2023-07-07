@@ -1,0 +1,39 @@
+body{
+    background: linear-gradient(rgb(1, 27, 119), rgb(104,178,239),rgb(104,178,239),rgb(1, 27, 119));
+    
+}
+
+.bleu{
+    background-image: url(':///C:/Users/nolan/OneDrive/Images/Capture%20d%E2%80%99%C3%A9cran%202023-06-21%20161516.png');
+}
+
+.yolo{
+    background-color: #01B7CF;
+}
+
+.oscare{
+    position: fixed;
+    top: 40%;
+    left: 5%;
+    width:350px;
+    height:350px;
+    z-index: -10;
+}
+
+.oscar{
+    position: fixed;
+    top: 40%;
+    left: 75%;
+    width:350px;
+    height:350px;
+    z-index: -10;
+}
+
+.toto{
+    background-color: rgba(240, 248, 255, 0);
+}
+
+.toto:hover {
+background-color:rgb(255, 0, 0);
+cursor:pointer;
+}
