@@ -1,0 +1,10 @@
+.MCenter{
+    text-align: center;
+}
+
+header{
+    background-color: blueviolet;
+    height: 100px;
+    border-radius: 6px;
+    vertical-align: middle;
+}
